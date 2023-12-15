@@ -232,7 +232,7 @@ proxy-providers:
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 86400
+      interval: 1800
   mianfei:
     type: http
     url: "https://sub.xeton.dev/sub?target=clash&new_name=true&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcivi2578%2Fpeizhi%2Fmain%2FDYmianfei.yaml&insert=false"
@@ -241,20 +241,20 @@ proxy-providers:
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 86400
+      interval: 1800
   BLSG:
     type: file
     path: ./profiles/proxies/BLSG.yaml
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 30000
+      interval: 1800
 
 proxy-groups:
   - name: PROXY
     type: select
     url: http://www.gstatic.com/generate_204
-    interval: 30000
+    interval: 1800
     use:
       - fufei
       - mianfei
@@ -265,21 +265,21 @@ proxy-groups:
   - name: 付费
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 30000
+    interval: 1800
     use:
       - fufei
 
   - name: 免费
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 30000
+    interval: 1800
     use:
       - mianfei
 
   - name: Netflix
     type: select
     url: http://www.gstatic.com/generate_204
-    interval: 30000
+    interval: 1800
     use:
       - BLSG
     proxies:
@@ -289,7 +289,7 @@ proxy-groups:
   - name: Youtube
     type: select
     url: http://www.gstatic.com/generate_204
-    interval: 30000
+    interval: 1800
     use:
       - fufei
       - mianfei
@@ -300,7 +300,7 @@ proxy-groups:
   - name: GitHub
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 30000
+    interval: 1800
     use: 
       - fufei
       - mianfei
@@ -308,7 +308,7 @@ proxy-groups:
   - name: Sex
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 30000
+    interval: 1800
     use: 
       - fufei
       - mianfei
@@ -316,7 +316,7 @@ proxy-groups:
   - name: 漏网之鱼
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 30000
+    interval: 1800
     use:
       - fufei
       - mianfei
@@ -338,7 +338,7 @@ rule-providers:
     behavior: classical
     url: https://cdn.jsdelivr.net/gh/Semporia/Clash@master/Rule/GitHub.yaml
     path: ./profiles/rules/GitHub.yaml
-    interval: 3600
+    interval: 864000
   apple:
     type: http
     behavior: domain
