@@ -102,6 +102,7 @@ proxy-groups:
       - fufei
       - mianfei
     proxies:
+      - 速度优先
       - 付费
       - 免费
 
@@ -153,6 +154,14 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 1800
     use: 
+      - fufei
+      - mianfei
+
+  - name: 速度优先
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 1800
+    use:
       - fufei
       - mianfei
 
