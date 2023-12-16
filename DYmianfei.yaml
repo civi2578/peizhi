@@ -37,6 +37,22 @@ proxies:
   - {name: 🇭🇰 韩国|深港HKT|流媒体, server: yd.qianggewangluo.buzz, port: 10819, type: ss, cipher: chacha20-ietf-poly1305, password: d42197c0-2a41-4efd-a2aa-f71232167240}
   - {name: 🇰🇷 韩国-3.67MB/s, server: 43.201.53.4, port: 443, type: ss, cipher: aes-256-cfb, password: amazonskr05}
   - {name: 中转节点-22.52MB/s, server: cm03.newcome.xyz, port: 6707, type: ssr, cipher: chacha20-ietf, password: jFa4F1, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 46961:1210-Tha, obfs-param: 5d3ee46961.microsoft.com}
+  - {name: 🇷🇺 github.com/freefq - 俄罗斯  1, server: 91.194.161.7, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: OWJlYjYy}
+  - {name: 🇨🇳 github.com/freefq - 台湾省中华电信(HiNet)数据中心 2, server: b11.ntbq.dynu.net, port: 443, type: vmess, uuid: 14327f86-7734-4d5b-9561-b58ad95cbcfb, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /b11, headers: {Host: b11.ntbq.dynu.net}}}
+  - {name: 🇨🇳 github.com/freefq - 广东省广州市移动 3, server: service.ouluyun9803.com, port: 26666, type: ss, cipher: chacha20-ietf-poly1305, password: cfa17a0d-5e7d-4871-976e-f116e0818123}
+  - {name: 🇺🇲 github.com/freefq - 美国  4, server: 146.190.108.95, port: 30976, type: vmess, uuid: d2a14469-8e8e-44da-8001-7864bd3f7121, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: m.licdn.com}}}
+  - {name: 🇺🇲 github.com/freefq - 美国CloudFlare节点 5, server: 190.93.246.119, port: 80, type: vmess, uuid: b7fdc31a-3f0b-45f1-aa0e-d5d883ac5c4e, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /QUeMEWutZAndOVVMwhRJqh28, headers: {Host: m.iranspeed.shop}}}
+  - {name: github.com/freefq - 湖南省联通 6, server: t.cnmjcn.cyou, port: 16616, type: vmess, uuid: c2c76420-257f-492a-b20f-6560f3bfa78d, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: d4d028243c73047d9171bacb9b0439e8.mobgslb.tbcache.com}}}
+  - {name: 🇺🇲 github.com/freefq - 美国CloudFlare公司CDN节点 7, server: us-new04.gujuji.top, port: 8080, type: vmess, uuid: 0954bb8c-2e67-4fda-afde-aa5a98529fb4, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: us-new04.gujuji.top}}}
+  - {name: 🇺🇲 github.com/freefq - 美国CloudFlare节点 8, server: amini2.ddns.net, port: 2083, type: vmess, uuid: 9e9b80f1-5555-4f7d-a209-d23b9d9dc047, alterId: 0, cipher: auto, tls: true, servername: PAneljadid.mookoMEilz.homes, network: ws, ws-opts: {path: /snsk, headers: {Host: PAneljadid.mookoMEilz.homes}}}
+  - {name: github.com/freefq - 湖南省联通 9, server: yes.cnmjcn.net, port: 16616, type: vmess, uuid: c2c76420-257f-492a-b20f-6560f3bfa78d, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: d4d028243c73047d9171bacb9b0439e8.mobgslb.tbcache.com}}}
+  - {name: 🇨🇳 github.com/freefq - 广东省广州市移动 10, server: service.ouluyun9803.com, port: 20001, type: ss, cipher: chacha20-ietf-poly1305, password: cfa17a0d-5e7d-4871-976e-f116e0818123}
+  - {name: 🇨🇳 github.com/freefq - 广东省广州市移动 11, server: service.ouluyun9803.com, port: 26668, type: ss, cipher: chacha20-ietf-poly1305, password: cfa17a0d-5e7d-4871-976e-f116e0818123}
+  - {name: 🇷🇺 github.com/freefq - 俄罗斯  12, server: 185.231.205.80, port: 1443, type: ss, cipher: chacha20-ietf-poly1305, password: MGQwNTgw}
+  - {name: 🇸🇬 github.com/freefq - 台湾省新北市中华电信 13, server: nb24.ntbq.dynu.net, port: 443, type: vmess, uuid: 14327f86-7734-4d5b-9561-b58ad95cbcfb, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /b24, headers: {Host: nb24.ntbq.dynu.net}}}
+  - {name: 🇨🇦 github.com/freefq - 加拿大  14, server: 142.202.48.43, port: 2375, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
+  - {name: 🇨🇦 github.com/freefq - 加拿大  15, server: 142.202.48.43, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
+  - {name: 🇺🇲 github.com/freefq - 美国CloudFlare公司CDN节点 16, server: us-02.jikuai.xyz, port: 2082, type: vmess, uuid: 70666776-4e9f-4350-b3f0-afaff6a70db0, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: us-02.jikuai.xyz}}}
 proxy-groups:
   - name: 🚀 节点选择
     type: select
