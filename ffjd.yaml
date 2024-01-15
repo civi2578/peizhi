@@ -85,13 +85,6 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 1800
-  BLSG:
-    type: file
-    path: ./BLSG.yaml
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 1800
 
 proxy-groups:
   - name: PROXY
