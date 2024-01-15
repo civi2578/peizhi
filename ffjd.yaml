@@ -117,8 +117,6 @@ proxy-groups:
     type: select
     url: http://www.gstatic.com/generate_204
     interval: 1800
-    use:
-      - BLSG
     proxies:
       - 免费
       - 付费
