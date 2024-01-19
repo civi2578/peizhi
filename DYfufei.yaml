@@ -5,7 +5,16 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  - {name: 🇭🇰 HK香港, server: yidong.liulangdiqiu.life, port: 10726, type: ss, cipher: chacha20-ietf-poly1305, password: 6216d495-bfaa-4fe2-b354-e2974c0c290d}
+  - {name: 🇸🇬 新加坡-hy2-01, server: sg.xn--wtq35pfyd55o.club, port: 20001, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d, auth: e35fd6f3-8628-404a-b95a-9d258cd8c15d, sni: 1231231.1234567890spcloud.com, skip-cert-verify: false}
+  - {name: 🇺🇸 美国-hy2-01, server: us.xn--wtq35pfyd55o.club, port: 20001, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d, auth: e35fd6f3-8628-404a-b95a-9d258cd8c15d, sni: 1231231.1234567890spcloud.com, skip-cert-verify: false}
+  - {name: 🇺🇸 美国-hy2-02, server: us.xn--wtq35pfyd55o.club, port: 20009, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d, auth: e35fd6f3-8628-404a-b95a-9d258cd8c15d, sni: 1231231.1234567890spcloud.com, skip-cert-verify: false}
+  - {name: 🇸🇬 新加坡-hy2-02, server: sg.xn--wtq35pfyd55o.club, port: 20009, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d, auth: e35fd6f3-8628-404a-b95a-9d258cd8c15d, sni: 1231231.1234567890spcloud.com, skip-cert-verify: false}
+  - {name: 🇺🇸 美国-hy2-03, server: us.xn--wtq35pfyd55o.club, port: 30009, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d, auth: e35fd6f3-8628-404a-b95a-9d258cd8c15d, sni: 1231231.1234567890spcloud.com, skip-cert-verify: false}
+  - {name: 🇺🇸 美国-hy2-04, server: us.xn--wtq35pfyd55o.club, port: 30209, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d, auth: e35fd6f3-8628-404a-b95a-9d258cd8c15d, sni: 1231231.1234567890spcloud.com, skip-cert-verify: false}
+  - {name: 🇺🇸 美国-hy2-05, server: us.xn--wtq35pfyd55o.club, port: 30219, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d, auth: e35fd6f3-8628-404a-b95a-9d258cd8c15d, sni: 1231231.1234567890spcloud.com, skip-cert-verify: false}
+  - {name: 🇸🇬 新加坡-hy2-03, server: sg.xn--wtq35pfyd55o.club, port: 20029, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d, auth: e35fd6f3-8628-404a-b95a-9d258cd8c15d, sni: 1231231.1234567890spcloud.com, skip-cert-verify: false}
+  - {name: 🇸🇬 新加坡-hy2-04, server: sg.xn--wtq35pfyd55o.club, port: 20129, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d, auth: e35fd6f3-8628-404a-b95a-9d258cd8c15d, sni: 1231231.1234567890spcloud.com, skip-cert-verify: false}
+  - {name: 🇸🇬 新加坡-hy2-05, server: sg.xn--wtq35pfyd55o.club, port: 20139, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d, auth: e35fd6f3-8628-404a-b95a-9d258cd8c15d, sni: 1231231.1234567890spcloud.com, skip-cert-verify: false}
 proxy-groups:
   - name: 🚀 节点选择
     type: select
