@@ -94,7 +94,19 @@ proxy-providers:
       interval: 1800
 
 proxy-groups:
-  - name: PROXY
+  - name: 开始选择策略
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 1800
+    proxies:
+      - 负载均衡-轮询
+      - 负载均衡-散列
+      - 手动选择
+      - 速度优先
+      - 付费
+      - 免费
+
+  - name: 手动选择
     type: select
     url: http://www.gstatic.com/generate_204
     interval: 1800
@@ -103,6 +115,22 @@ proxy-groups:
       - mianfei
     proxies:
       - 速度优先
+      - 付费
+      - 免费
+
+  - name: 负载均衡-轮询
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 1800
+    proxies:
+      - 付费
+      - 免费
+
+  - name: 负载均衡-散列(机场链接用这个)
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 1800
+    proxies:
       - 付费
       - 免费
 
