@@ -101,8 +101,10 @@ proxy-groups:
     proxies:
       - 手动选择节点
       - 速度优先
-      - 负载均衡-轮询
-      - 负载均衡-散列
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
       - 付费
       - 免费
 
@@ -114,33 +116,47 @@ proxy-groups:
       - fufei
       - mianfei
 
-  - name: 负载均衡-轮询
-    type: load-balance
-    url: http://www.gstatic.com/generate_204
-    interval: 1800
-    strategy: round-robin
-    proxies:
-      - 免费
-      - 付费
-
-  - name: 负载均衡-散列
+  - name: 免费负载均衡-散列
     type: load-balance
     url: http://www.gstatic.com/generate_204
     interval: 1800
     strategy: consistent-hashing
-    proxies:
-      - 免费
-      - 付费
+    use:
+      - mianfei
+
+  - name: 付费负载均衡-散列
+    type: load-balance
+    url: http://www.gstatic.com/generate_204
+    interval: 1800
+    strategy: consistent-hashing
+    use:
+      - fufei
+
+  - name: 免费负载均衡-轮询
+    type: load-balance
+    url: http://www.gstatic.com/generate_204
+    interval: 1800
+    strategy: round-robin
+    use:
+      - mianfei
+
+  - name: 付费负载均衡-轮询
+    type: load-balance
+    url: http://www.gstatic.com/generate_204
+    interval: 1800
+    strategy: round-robin
+    use:
+      - fufei
 
   - name: 付费
-    type: url-test
+    type: select
     url: http://www.gstatic.com/generate_204
     interval: 1800
     use:
       - fufei
 
   - name: 免费
-    type: url-test
+    type: select
     url: http://www.gstatic.com/generate_204
     interval: 1800
     use:
@@ -155,8 +171,10 @@ proxy-groups:
     proxies:
       - 免费
       - 付费
-      - 负载均衡-轮询
-      - 负载均衡-散列
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
 
   - name: Youtube
     type: select
@@ -168,8 +186,10 @@ proxy-groups:
     proxies:
       - 免费
       - 付费
-      - 负载均衡-轮询
-      - 负载均衡-散列
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
 
   - name: GitHub
     type: select
@@ -181,8 +201,10 @@ proxy-groups:
     proxies:
       - 免费
       - 付费
-      - 负载均衡-轮询
-      - 负载均衡-散列
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
 
   - name: Sex
     type: select
@@ -194,8 +216,10 @@ proxy-groups:
     proxies:
       - 免费
       - 付费
-      - 负载均衡-轮询
-      - 负载均衡-散列
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
 
   - name: 速度优先
     type: url-test
