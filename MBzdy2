@@ -94,17 +94,41 @@ proxy-providers:
       interval: 1800
 
 proxy-groups:
-  - name: PROXY
+  - name: 选择代理策略
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 1800
+    proxies:
+      - 手动选择节点
+      - 速度优先
+      - 负载均衡-轮询
+      - 负载均衡-散列
+      - 付费
+      - 免费
+
+  - name: 手动选择节点
     type: select
     url: http://www.gstatic.com/generate_204
     interval: 1800
     use:
       - fufei
       - mianfei
+
+  - name: 负载均衡-轮询
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 1800
     proxies:
-      - 速度优先
-      - 付费
       - 免费
+      - 付费
+
+  - name: 负载均衡-散列
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 1800
+    proxies:
+      - 免费
+      - 付费
 
   - name: 付费
     type: url-test
@@ -129,6 +153,8 @@ proxy-groups:
     proxies:
       - 免费
       - 付费
+      - 负载均衡-轮询
+      - 负载均衡-散列
 
   - name: Youtube
     type: select
@@ -140,22 +166,34 @@ proxy-groups:
     proxies:
       - 免费
       - 付费
+      - 负载均衡-轮询
+      - 负载均衡-散列
 
   - name: GitHub
-    type: url-test
+    type: select
     url: http://www.gstatic.com/generate_204
     interval: 1800
     use: 
       - fufei
       - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 负载均衡-轮询
+      - 负载均衡-散列
 
   - name: Sex
-    type: url-test
+    type: select
     url: http://www.gstatic.com/generate_204
     interval: 1800
     use: 
       - fufei
       - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 负载均衡-轮询
+      - 负载均衡-散列
 
   - name: 速度优先
     type: url-test
@@ -166,7 +204,7 @@ proxy-groups:
       - mianfei
 
   - name: 漏网之鱼
-    type: url-test
+    type: select
     url: http://www.gstatic.com/generate_204
     interval: 1800
     use:
@@ -382,9 +420,9 @@ rules:
   - RULE-SET,icloud,DIRECT
   - RULE-SET,apple,DIRECT
   - RULE-SET,google,DIRECT
-  - RULE-SET,proxy,PROXY
+  - RULE-SET,proxy,选择代理策略
   - RULE-SET,direct,DIRECT
-  - RULE-SET,telegramcidr,PROXY
+  - RULE-SET,telegramcidr,选择代理策略
   - GEOIP,,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,漏网之鱼
