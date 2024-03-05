@@ -70,7 +70,7 @@ proxy-providers:
   fufei:
     type: http
     url: "https://sub.xeton.dev/sub?target=clash&new_name=true&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcivi2578%2Fpeizhi%2Fmain%2FDYfufei.yaml&insert=false"
-    path: ./profiles/proxies/DYfufei.yaml
+    path: ./DYfufei.yaml
     interval: 3600
     health-check:
       enable: true
@@ -79,7 +79,7 @@ proxy-providers:
   mianfei:
     type: http
     url: "https://sub.xeton.dev/sub?target=clash&new_name=true&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcivi2578%2Fpeizhi%2Fmain%2FDYmianfei.yaml&insert=false"
-    path: ./profiles/proxies/DYmianfei.yaml
+    path: ./DYmianfei.yaml
     interval: 3600
     health-check:
       enable: true
@@ -87,52 +87,50 @@ proxy-providers:
       interval: 1800
   BLSG:
     type: file
-    path: ./profiles/proxies/BLSG.yaml
+    path: ./BLSG.yaml
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 1800
 
 proxy-groups:
-  - name: 开始选择策略
+  - name: 选择代理策略
     type: select
     url: http://www.gstatic.com/generate_204
     interval: 1800
     proxies:
+      - 手动选择节点
+      - 速度优先
       - 负载均衡-轮询
       - 负载均衡-散列
-      - 手动选择
-      - 速度优先
       - 付费
       - 免费
 
-  - name: 手动选择
+  - name: 手动选择节点
     type: select
     url: http://www.gstatic.com/generate_204
     interval: 1800
     use:
       - fufei
       - mianfei
-    proxies:
-      - 速度优先
-      - 付费
-      - 免费
 
   - name: 负载均衡-轮询
-    type: select
+    type: load-balance
     url: http://www.gstatic.com/generate_204
     interval: 1800
+    strategy: round-robin
     proxies:
-      - 付费
       - 免费
+      - 付费
 
-  - name: 负载均衡-散列(机场链接用这个)
-    type: select
+  - name: 负载均衡-散列
+    type: load-balance
     url: http://www.gstatic.com/generate_204
     interval: 1800
+    strategy: consistent-hashing
     proxies:
-      - 付费
       - 免费
+      - 付费
 
   - name: 付费
     type: url-test
@@ -157,6 +155,8 @@ proxy-groups:
     proxies:
       - 免费
       - 付费
+      - 负载均衡-轮询
+      - 负载均衡-散列
 
   - name: Youtube
     type: select
@@ -168,22 +168,34 @@ proxy-groups:
     proxies:
       - 免费
       - 付费
+      - 负载均衡-轮询
+      - 负载均衡-散列
 
   - name: GitHub
-    type: url-test
+    type: select
     url: http://www.gstatic.com/generate_204
     interval: 1800
     use: 
       - fufei
       - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 负载均衡-轮询
+      - 负载均衡-散列
 
   - name: Sex
-    type: url-test
+    type: select
     url: http://www.gstatic.com/generate_204
     interval: 1800
     use: 
       - fufei
       - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 负载均衡-轮询
+      - 负载均衡-散列
 
   - name: 速度优先
     type: url-test
@@ -194,7 +206,7 @@ proxy-groups:
       - mianfei
 
   - name: 漏网之鱼
-    type: url-test
+    type: select
     url: http://www.gstatic.com/generate_204
     interval: 1800
     use:
@@ -410,9 +422,9 @@ rules:
   - RULE-SET,icloud,DIRECT
   - RULE-SET,apple,DIRECT
   - RULE-SET,google,DIRECT
-  - RULE-SET,proxy,PROXY
+  - RULE-SET,proxy,选择代理策略
   - RULE-SET,direct,DIRECT
-  - RULE-SET,telegramcidr,PROXY
+  - RULE-SET,telegramcidr,选择代理策略
   - GEOIP,,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,漏网之鱼
