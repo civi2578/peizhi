@@ -71,33 +71,33 @@ proxy-providers:
     type: http
     url: "https://sub.xeton.dev/sub?target=clash&new_name=true&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcivi2578%2Fpeizhi%2Fmain%2FDYfufei.yaml&insert=false"
     path: ./DYfufei.yaml
-    interval: 3600
+    interval: 600
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 1800
+      interval: 600
   mianfei:
     type: http
     url: "https://sub.xeton.dev/sub?target=clash&new_name=true&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcivi2578%2Fpeizhi%2Fmain%2FDYmianfei.yaml&insert=false"
     path: ./DYmianfei.yaml
-    interval: 3600
+    interval: 600
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 1800
+      interval: 600
   BLSG:
     type: file
     path: ./BLSG.yaml
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 1800
+      interval: 600
 
 proxy-groups:
   - name: 选择代理策略
     type: select
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     proxies:
       - 手动选择节点
       - 速度优先
@@ -111,7 +111,7 @@ proxy-groups:
   - name: 手动选择节点
     type: select
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     use:
       - fufei
       - mianfei
@@ -119,7 +119,7 @@ proxy-groups:
   - name: 免费负载均衡-散列
     type: load-balance
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     strategy: consistent-hashing
     use:
       - mianfei
@@ -127,7 +127,7 @@ proxy-groups:
   - name: 付费负载均衡-散列
     type: load-balance
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     strategy: consistent-hashing
     use:
       - fufei
@@ -135,7 +135,7 @@ proxy-groups:
   - name: 免费负载均衡-轮询
     type: load-balance
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     strategy: round-robin
     use:
       - mianfei
@@ -143,7 +143,7 @@ proxy-groups:
   - name: 付费负载均衡-轮询
     type: load-balance
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     strategy: round-robin
     use:
       - fufei
@@ -151,21 +151,21 @@ proxy-groups:
   - name: 付费
     type: select
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     use:
       - fufei
 
   - name: 免费
     type: select
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     use:
       - mianfei
 
   - name: Netflix
     type: select
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     use:
       - BLSG
     proxies:
@@ -179,7 +179,7 @@ proxy-groups:
   - name: Youtube
     type: select
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     use:
       - fufei
       - mianfei
@@ -194,7 +194,7 @@ proxy-groups:
   - name: GitHub
     type: select
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     use: 
       - fufei
       - mianfei
@@ -209,7 +209,7 @@ proxy-groups:
   - name: Sex
     type: select
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     use: 
       - fufei
       - mianfei
@@ -224,7 +224,7 @@ proxy-groups:
   - name: 速度优先
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     use:
       - fufei
       - mianfei
@@ -232,7 +232,7 @@ proxy-groups:
   - name: 漏网之鱼
     type: select
     url: http://www.gstatic.com/generate_204
-    interval: 1800
+    interval: 600
     use:
       - fufei
       - mianfei
