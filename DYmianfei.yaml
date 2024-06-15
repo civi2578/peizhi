@@ -34,6 +34,16 @@ proxies:
   - {name: 🇵🇱 _PL_波兰 10, server: 51.77.53.200, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
   - {name: 🇺🇸 _US_美国 6, server: 205.134.180.139, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: lWaGPVFjmnag}
   - {name: 🇺🇸 _US_美国 7, server: 51.44.29.109, port: 22222, type: trojan, password: telegram-id-privatevpns, sni: trojan.burgerip.co.uk}
+  - {name: 未知国家-3.21MB/s, server: cfcdn1.sanfencdn9.com, port: 8880, type: vmess, uuid: e62d9d73-9a0e-4d7a-8eba-8a9666c9bcbe, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /video/bYdJ7Vc2We, headers: {Host: us6gzxQRrE4.fzbqfrse.xyz}}, udp: true}
+  - {name: 中转节点-526.6KB/s, server: 59.56.77.178, port: 16058, type: ss, cipher: aes-256-cfb, password: hGkQ6915tD, udp: true}
+  - {name: 中转节点-2.39MB/s, server: 59.56.77.178, port: 15001, type: ss, cipher: aes-256-cfb, password: hGkQ6915tD, udp: true}
+  - {name: 美国-4.41MB/s, server: 1yvip1.xyyjc.top, port: 2052, type: vmess, uuid: 33f0a763-428a-4779-b21f-51307a7d4527, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /, headers: {Host: jdtw.xyyjc.top}}, udp: true}
+  - {name: 中转节点-3.80MB/s, server: 183.232.139.22, port: 50611, type: trojan, password: gkviEOYc, skip-cert-verify: true, udp: true}
+  - {name: 美国-4.30MB/s, server: 107.167.20.183, port: 443, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-opts: {path: /path/191019072927}, udp: true}
+  - {name: 爱尔兰-207.1KB/s, server: 13.74.117.2, port: 24701, type: ss, cipher: chacha20-ietf-poly1305, password: evQBKxxL32qsGBYbomzXTM, udp: true}
+  - {name: 日本-985.6KB/s, server: 3.112.44.123, port: 443, type: ss, cipher: aes-256-cfb, password: amazonskr05, udp: true}
+  - {name: 韩国-1.50MB/s, server: 52.79.247.2, port: 443, type: ss, cipher: aes-256-cfb, password: amazonskr05, udp: true}
+  - {name: 美国-837.5KB/s, server: 45.158.171.148, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: a8bt9fY0QsLS6eLnXUe0Ym, udp: true}  
 proxy-groups:
   - name: 🚀 节点选择
     type: select
