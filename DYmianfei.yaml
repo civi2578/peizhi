@@ -51,6 +51,14 @@ proxies:
   - {name: 🇺🇸 美国-793.9KB/s, server: 23.154.136.176, port: 7307, client-fingerprint: chrome, type: ss, cipher: aes-256-gcm, password: FoOiGlkAA9yPEGP, tfo: false}
   - {name: 🇺🇸 美国-796.6KB/s, server: 23.154.136.176, port: 8118, client-fingerprint: chrome, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN, tfo: false}
   - {name: 🇺🇸 美国-800.4KB/s, server: 23.154.136.176, port: 9102, client-fingerprint: chrome, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY, tfo: false}
+  - {name: 🇸🇬 新加坡 1x, server: cs2.ni8.me, port: 42729, type: ss, cipher: chacha20-ietf-poly1305, password: 011bf6f6-5dba-4f93-973f-cae177ff3d84}
+  - {name: 🇯🇵 日本原生 1x, server: cs2.ni8.me, port: 53185, type: ss, cipher: chacha20-ietf-poly1305, password: 011bf6f6-5dba-4f93-973f-cae177ff3d84}
+  - {name: 🇯🇵 日本 1x, server: cs2.ni8.me, port: 22225, type: ss, cipher: chacha20-ietf-poly1305, password: 011bf6f6-5dba-4f93-973f-cae177ff3d84}
+  - {name: 🇭🇰 香港 1x, server: cs2.ni8.me, port: 39210, type: ss, cipher: chacha20-ietf-poly1305, password: 011bf6f6-5dba-4f93-973f-cae177ff3d84}
+  - {name: 🇭🇰 香港2-原生 1x, server: cs2.ni8.me, port: 38896, type: ss, cipher: chacha20-ietf-poly1305, password: 011bf6f6-5dba-4f93-973f-cae177ff3d84}
+  - {name: 🇨🇦 加拿大 1x, server: cs2.ni8.me, port: 16943, type: ss, cipher: chacha20-ietf-poly1305, password: 011bf6f6-5dba-4f93-973f-cae177ff3d84}
+  - {name: 🇺🇸 MF-1｜United States, server: 12372.96110.one, port: 23872, type: trojan, password: a0181ff9-feca-4d16-aeb5-c6324aecab67, sni: www.icloud.com, skip-cert-verify: false}
+  - {name: 🇸🇬 MF-1｜Singapore, server: 23489.96110.one, port: 53296, type: trojan, password: a0181ff9-feca-4d16-aeb5-c6324aecab67, sni: www.icloud.com, skip-cert-verify: false}
 proxy-groups:
   - name: 🚀 节点选择
     type: select
