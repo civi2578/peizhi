@@ -236,6 +236,14 @@ proxy-groups:
     use:
       - fufei
       - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+      - DIRECT
 rule-providers:
   reject:
     type: http
