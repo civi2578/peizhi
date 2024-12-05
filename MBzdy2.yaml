@@ -1,0 +1,366 @@
+#---------------------------------------------------#
+## 配置文件需要放置在 $HOME/.config/clash/config.yaml
+##
+## 如果您不知道如何操作，请参阅 SS-Rule-Snippet 的 Wiki：
+## https://github.com/Hackl0us/SS-Rule-Snippet/wiki/clash(X)
+
+## 关于 Clash Premium 的额外功能，请参考官方文档：
+## https://github.com/Dreamacro/clash/wiki/Premium-Core-Features
+#---------------------------------------------------#
+
+# HTTP 代理端口
+port: 7890
+
+# SOCKS5 代理端口
+socks-port: 7891
+
+# Linux 和 macOS 的 redir 透明代理端口 (重定向 TCP 和 TProxy UDP 流量)
+# redir-port: 7892
+
+# Linux 的透明代理端口（适用于 TProxy TCP 和 TProxy UDP 流量)
+# tproxy-port: 7893
+
+# 本地 SOCKS5/HTTP(S) 服务验证
+# authentication:
+#  - "user1:pass1"
+#  - "user2:pass2"
+
+# 允许局域网的连接（可用来共享代理）
+allow-lan: true
+bind-address: "*"
+# 此功能仅在 allow-lan 设置为 true 时生效，支持三种参数：
+# "*"                           绑定所有的 IP 地址
+# 192.168.122.11                绑定一个的 IPv4 地址
+# "[aaaa::a8aa:ff:fe09:57d8]"   绑定一个 IPv6 地址
+
+# Clash 路由工作模式
+# 规则模式：rule（规则） / global（全局代理）/ direct（全局直连）
+mode: rule
+
+# Clash 默认将日志输出至 STDOUT
+# 设置日志输出级别 (默认级别：silent，即不输出任何内容，以避免因日志内容过大而导致程序内存溢出）。
+# 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
+log-level: silent
+
+# clash 的 RESTful API 监听地址
+external-controller: 127.0.0.1:9090
+
+# 存放配置文件的相对路径，或存放网页静态资源的绝对路径
+# Clash core 将会将其部署在 http://{{external-controller}}/ui
+# external-ui: folder
+
+# RESTful API 的口令 (可选)
+# 通过 HTTP 头中 Authorization: Bearer ${secret} 参数来验证口令
+# 当 RESTful API 的监听地址为 0.0.0.0 时，请务必设定口令以保证安全
+# secret: ""
+
+# 出站网卡接口
+# interface-name: en0
+
+# DNS 服务器和建立连接时的 静态 Hosts, 仅在 dns.enhanced-mode 模式为 redir-host 生效
+# 支持通配符域名 (例如: *.clash.dev, *.foo.*.example.com )
+# 不使用通配符的域名优先级高于使用通配符的域名 (例如: foo.example.com > *.example.com > .example.com )
+# 注意: +.foo.com 的效果等同于 .foo.com 和 foo.com
+hosts:
+# '*.clash.dev': 127.0.0.1
+# '.dev': 127.0.0.1
+# 'alpha.clash.dev': '::1'
+
+proxy-providers:
+  fufei:
+    type: http
+    url: "https://sub.xeton.dev/sub?target=clash&new_name=true&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcivi2578%2Fpeizhi%2Fmain%2FDYfufei.yaml&insert=false"
+    path: ./DYfufei.yaml
+    interval: 600
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 600
+  mianfei:
+    type: http
+    url: "https://sub.xeton.dev/sub?target=clash&new_name=true&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcivi2578%2Fpeizhi%2Fmain%2FDYmianfei.yaml&insert=false"
+    path: ./DYmianfei.yaml
+    interval: 600
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 600
+
+proxy-groups:
+  - name: 选择代理策略
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    proxies:
+      - 手动选择节点
+      - 速度优先
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+      - 付费
+      - 免费
+
+  - name: 手动选择节点
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - fufei
+      - mianfei
+
+  - name: 免费负载均衡-散列
+    type: load-balance
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    strategy: consistent-hashing
+    use:
+      - mianfei
+
+  - name: 付费负载均衡-散列
+    type: load-balance
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    strategy: consistent-hashing
+    use:
+      - fufei
+
+  - name: 免费负载均衡-轮询
+    type: load-balance
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    strategy: round-robin
+    use:
+      - mianfei
+
+  - name: 付费负载均衡-轮询
+    type: load-balance
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    strategy: round-robin
+    use:
+      - fufei
+
+  - name: 付费
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - fufei
+
+  - name: 免费
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - mianfei
+
+  - name: Netflix
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - BLSG
+    proxies:
+      - 免费
+      - 付费
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+
+  - name: Youtube
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - fufei
+      - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+
+  - name: GitHub
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use: 
+      - fufei
+      - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+      - DIRECT
+
+  - name: Sex
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use: 
+      - fufei
+      - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+
+  - name: 速度优先
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - fufei
+      - mianfei
+
+  - name: 漏网之鱼
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - fufei
+      - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+      - DIRECT
+
+
+  - name: TikTok
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - fufei
+      - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+
+  - name: 国外媒体
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - fufei
+      - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+
+  - name: Telegram
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - fufei
+      - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+
+  - name: OneDrive
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    proxies:
+      - DIRECT
+
+  - name: 全球直连
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+      - DIRECT
+
+  - name: AI
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - fufei
+      - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+
+  - name: 游戏平台
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - fufei
+      - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+      - DIRECT
+
+
+ruleset=全球直连,https://raw.githubusercontent.com/civi2578/peizhi/refs/heads/main/Direct.list
+ruleset=手动选择节点,https://raw.githubusercontent.com/civi2578/peizhi/refs/heads/main/ProxyLite.list
+ruleset=Sex,https://raw.githubusercontent.com/civi2578/peizhi/refs/heads/main/Sex.list
+ruleset=AI,https://raw.githubusercontent.com/civi2578/peizhi/refs/heads/main/AI.list
+
+ruleset=TikTok,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list
+ruleset=Youtube,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list
+ruleset=国外媒体,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+ruleset=Telegram,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
+ruleset=OneDrive,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.list
+ruleset=GitHub,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.list
+ruleset=GitHub,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml
+ruleset=游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Epic.list
+ruleset=游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Origin.list
+ruleset=游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Sony.list
+ruleset=游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Steam.list
+ruleset=游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Nintendo.list
+ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list
+ruleset=全球直连,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list
+
+ruleset=全球直连,[]GEOSITE,CN
+ruleset=选择代理策略,[]GEOSITE,geolocation-!cn
+ruleset=全球直连,[]GEOIP,CN,no-resolve
+ruleset=漏网之鱼,[]FINAL
+
+
+
+  
