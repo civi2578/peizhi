@@ -1,70 +1,106 @@
-#---------------------------------------------------#
-## 配置文件需要放置在 $HOME/.config/clash/config.yaml
-##
-## 如果您不知道如何操作，请参阅 SS-Rule-Snippet 的 Wiki：
-## https://github.com/Hackl0us/SS-Rule-Snippet/wiki/clash(X)
-
-## 关于 Clash Premium 的额外功能，请参考官方文档：
-## https://github.com/Dreamacro/clash/wiki/Premium-Core-Features
-#---------------------------------------------------#
-
-# HTTP 代理端口
+# 用于下载订阅时指定UA
+global-ua: clash
+    
+# 全局配置
 port: 7890
-
-# SOCKS5 代理端口
 socks-port: 7891
-
-# Linux 和 macOS 的 redir 透明代理端口 (重定向 TCP 和 TProxy UDP 流量)
-# redir-port: 7892
-
-# Linux 的透明代理端口（适用于 TProxy TCP 和 TProxy UDP 流量)
-# tproxy-port: 7893
-
-# 本地 SOCKS5/HTTP(S) 服务验证
-# authentication:
-#  - "user1:pass1"
-#  - "user2:pass2"
-
-# 允许局域网的连接（可用来共享代理）
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7894
+ipv6: false
 allow-lan: true
-bind-address: "*"
-# 此功能仅在 allow-lan 设置为 true 时生效，支持三种参数：
-# "*"                           绑定所有的 IP 地址
-# 192.168.122.11                绑定一个的 IPv4 地址
-# "[aaaa::a8aa:ff:fe09:57d8]"   绑定一个 IPv6 地址
+unified-delay: true
+tcp-concurrent: true
+  
+geodata-mode: false
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 48
+geox-url:
+  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+  asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
+  
 
-# Clash 路由工作模式
-# 规则模式：rule（规则） / global（全局代理）/ direct（全局直连）
-mode: rule
+# 匹配进程 always/strict/off
+find-process-mode: strict
+global-client-fingerprint: chrome
+keep-alive-idle: 600
+keep-alive-interval: 30
 
-# Clash 默认将日志输出至 STDOUT
-# 设置日志输出级别 (默认级别：silent，即不输出任何内容，以避免因日志内容过大而导致程序内存溢出）。
-# 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
-log-level: silent
+# 策略组选择和fakeip缓存
+profile:
+  store-selected: true
+  store-fake-ip: true
+  
+# 流量嗅探
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  force-domain:
+    - +.v2ex.com
+  skip-domain:
+    - "dlg.io.mi.com"
+    - "+.push.apple.com"
+    - "+.apple.com"
+    
+# 代理模式
+tun:
+  enable: true
+  stack: mixed
+  mtu: 9000
+  dns-hijack:
+    - "any:53"
+    - "tcp://any:53"
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  
+# DNS模块
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: false
+  respect-rules: true
+  # 模式切换 redir-host / fake-ip
+  enhanced-mode: fake-ip
+  fake-ip-range: 28.0.0.1/8
+  # 模式切换 whitelist/blacklist 
+  # 黑名单模式表示如果匹配成功则不返回 Fake-IP, 白名单模式时只有匹配成功才返回 Fake-IP
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - "+.lan"
+    - "+.local"
+    - geosite:private
+    - geosite:cn
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  proxy-server-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver-policy:
+    "rule-set:private_domain,cn_domain":
+    - 223.5.5.5
+    - 119.29.29.29
+    "rule-set:geolocation-!cn":
+      - "https://dns.cloudflare.com/dns-query"
+      - "https://dns.google/dns-query"
 
-# clash 的 RESTful API 监听地址
-external-controller: 127.0.0.1:9090
+# 锚点
+pr: &pr {type: select, proxies: [Netflix, Netflix]}
 
-# 存放配置文件的相对路径，或存放网页静态资源的绝对路径
-# Clash core 将会将其部署在 http://{{external-controller}}/ui
-# external-ui: folder
-
-# RESTful API 的口令 (可选)
-# 通过 HTTP 头中 Authorization: Bearer ${secret} 参数来验证口令
-# 当 RESTful API 的监听地址为 0.0.0.0 时，请务必设定口令以保证安全
-# secret: ""
-
-# 出站网卡接口
-# interface-name: en0
-
-# DNS 服务器和建立连接时的 静态 Hosts, 仅在 dns.enhanced-mode 模式为 redir-host 生效
-# 支持通配符域名 (例如: *.clash.dev, *.foo.*.example.com )
-# 不使用通配符的域名优先级高于使用通配符的域名 (例如: foo.example.com > *.example.com > .example.com )
-# 注意: +.foo.com 的效果等同于 .foo.com 和 foo.com
-hosts:
-# '*.clash.dev': 127.0.0.1
-# '.dev': 127.0.0.1
-# 'alpha.clash.dev': '::1'
 
 proxy-providers:
   fufei:
@@ -86,6 +122,14 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       interval: 600
 
+
+  
+proxies:
+- name: "🟢 直连"
+  type: direct
+  udp: true
+  
+  
 proxy-groups:
   - name: 选择代理策略
     type: select
@@ -159,8 +203,6 @@ proxy-groups:
     type: select
     url: http://www.gstatic.com/generate_204
     interval: 600
-    use:
-      - BLSG
     proxies:
       - 免费
       - 付费
@@ -270,6 +312,22 @@ proxy-groups:
       - 免费负载均衡-轮询
       - 付费负载均衡-轮询
 
+  - name: Google
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - fufei
+      - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+
+
   - name: Telegram
     type: select
     url: http://www.gstatic.com/generate_204
@@ -296,6 +354,7 @@ proxy-groups:
     type: select
     url: http://www.gstatic.com/generate_204
     interval: 600
+    proxies:
       - DIRECT
 
   - name: AI
@@ -330,37 +389,51 @@ proxy-groups:
       - DIRECT
 
 
-ruleset=全球直连,https://raw.githubusercontent.com/civi2578/peizhi/refs/heads/main/Direct.list
-ruleset=手动选择节点,https://raw.githubusercontent.com/civi2578/peizhi/refs/heads/main/ProxyLite.list
-ruleset=Sex,https://raw.githubusercontent.com/civi2578/peizhi/refs/heads/main/Sex.list
-ruleset=AI,https://raw.githubusercontent.com/civi2578/peizhi/refs/heads/main/AI.list
-
-ruleset=TikTok,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list
-ruleset=Youtube,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list
-ruleset=国外媒体,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
-ruleset=Telegram,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.list
-ruleset=OneDrive,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.list
-ruleset=GitHub,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.list
-ruleset=GitHub,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml
-ruleset=游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Epic.list
-ruleset=游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Origin.list
-ruleset=游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Sony.list
-ruleset=游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Steam.list
-ruleset=游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Nintendo.list
-ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
-ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
-ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
-ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
-ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
-ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
-ruleset=全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list
-ruleset=全球直连,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list
-
-ruleset=全球直连,[]GEOSITE,CN
-ruleset=选择代理策略,[]GEOSITE,geolocation-!cn
-ruleset=全球直连,[]GEOIP,CN,no-resolve
-ruleset=漏网之鱼,[]FINAL
 
 
 
+rules:
+  - RULE-SET,private_domain,DIRECT
+  - RULE-SET,apple_domain,选择代理策略
+  - RULE-SET,proxylite,选择代理策略
+  - RULE-SET,ai,AI
+  - RULE-SET,github_domain,GitHub
+  - RULE-SET,youtube_domain,Youtube
+  - RULE-SET,google_domain,Google
+  - RULE-SET,onedrive_domain,OneDrive
+  - RULE-SET,tiktok_domain,TikTok
+  - RULE-SET,telegram_domain,Telegram
+  - RULE-SET,netflix_domain,Netflix
+  - RULE-SET,geolocation-!cn,选择代理策略
+  - RULE-SET,cn_domain,全球直连
+  - RULE-SET,google_ip,Google,no-resolve
+  - RULE-SET,netflix_ip,Netflix,no-resolve
+  - RULE-SET,telegram_ip,Telegram,no-resolve
+  - RULE-SET,cn_ip,全球直连
+  - MATCH,漏网之鱼
+rule-anchor:
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
+  domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
+  qcy: &qcy {type: http, interval: 86400, behavior: domain, format: text}
+  class: &class {type: http, interval: 86400, behavior: classical, format: text}
+rule-providers: 
+  private_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
+  proxylite: {!!merge <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/master/ProxyLite.list"}
+  ai: {!!merge <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/master/AI.list"}
+  youtube_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
+  google_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
+  github_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
+  telegram_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
+  netflix_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
+  onedrive_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs"}
+  microsoft_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
+  apple_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs"}
+  tiktok_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
+  gfw_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs"}
+  geolocation-!cn: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
+  cn_domain: {!!merge <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   
+  cn_ip: {!!merge <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
+  google_ip: {!!merge <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
+  telegram_ip: {!!merge <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
+  netflix_ip: {!!merge <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
