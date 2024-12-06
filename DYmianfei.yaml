@@ -15,6 +15,16 @@ proxies:
   - {name: 未知国家-874.7KB/s, server: 104.18.114.94, port: 2095, type: vmess, uuid: 18d96190-c10f-448f-a82a-2d36df5c3cde, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /github.com/Alvin9999, headers: {Host: c14.6016725.xyz}}, udp: true}
   - {name: 未知国家-874.2KB/s, server: 104.18.114.88, port: 2095, type: vmess, uuid: 18d96190-c10f-448f-a82a-2d36df5c3cde, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /github.com/Alvin9999, headers: {Host: c14.6016725.xyz}}, udp: true}
   - {name: 未知国家-878.7KB/s, server: 104.26.0.44, port: 2095, type: vmess, uuid: 18d96190-c10f-448f-a82a-2d36df5c3cde, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /github.com/Alvin9999, headers: {Host: c13.6016725.xyz}}, udp: true}
+  - {name: 美国-2.72MB/s, server: 54.200.220.184, port: 443, type: ss, cipher: aes-256-cfb, password: amazonskr05, udp: true}
+  - {name: 未知国家-3.63MB/s, server: 104.21.238.222, port: 8880, type: vmess, uuid: 90f8f4dc-8092-4355-9047-05f506f5e9ab, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: github.com/Alvin9999, headers: {Host: m1.106778.xyz}}, udp: true}
+  - {name: 新加坡-1.82MB/s, server: 47.128.225.94, port: 443, type: ss, cipher: aes-256-cfb, password: amazonskr05, udp: true}
+  - {name: 新加坡-1.20MB/s, server: 3.1.203.16, port: 443, type: ss, cipher: aes-256-cfb, password: amazonskr05, udp: true}
+  - {name: 俄罗斯联邦-45.6MB/s, server: 185.22.152.125, port: 32233, type: ss, cipher: aes-256-gcm, password: dongtaiwang.com, udp: true}
+  - {name: 美国-2.15MB/s, server: 34.215.84.62, port: 443, type: ss, cipher: aes-256-cfb, password: amazonskr05, udp: true}
+  - {name: 美国-694.6KB/s, server: 44.244.25.243, port: 443, type: ss, cipher: aes-256-cfb, password: amazonskr05, udp: true}
+  - {name: 新加坡-1.52MB/s, server: 47.128.215.67, port: 443, type: ss, cipher: aes-256-cfb, password: amazonskr05, udp: true}
+  - {name: 中转节点-412.6KB/s, server: 36.151.192.242, port: 18682, type: trojan, password: QwwHvrnN, skip-cert-verify: true, udp: true}
+  - {name: 中转节点-111.2KB/s, server: 120.198.71.214, port: 32193, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
 proxy-groups:
   - name: 🚀 节点选择
     type: select
