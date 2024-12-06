@@ -265,21 +265,6 @@ proxy-groups:
       - fufei
       - mianfei
 
-  - name: 漏网之鱼
-    type: select
-    url: http://www.gstatic.com/generate_204
-    interval: 600
-    use:
-      - fufei
-      - mianfei
-    proxies:
-      - 免费
-      - 付费
-      - 免费负载均衡-散列
-      - 付费负载均衡-散列
-      - 免费负载均衡-轮询
-      - 付费负载均衡-轮询
-      - DIRECT
 
 
   - name: TikTok
@@ -388,6 +373,21 @@ proxy-groups:
       - 付费负载均衡-轮询
       - DIRECT
 
+  - name: 漏网之鱼
+    type: select
+    url: http://www.gstatic.com/generate_204
+    interval: 600
+    use:
+      - fufei
+      - mianfei
+    proxies:
+      - 免费
+      - 付费
+      - 免费负载均衡-散列
+      - 付费负载均衡-散列
+      - 免费负载均衡-轮询
+      - 付费负载均衡-轮询
+      - DIRECT
 
 
 
