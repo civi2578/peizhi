@@ -5,26 +5,22 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  - {name: JP日本, server: yidong1.liulangdiqiu.life, port: 10701, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: KR韩国01, server: yidong1.liulangdiqiu.life, port: 10702, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: KR韩国02, server: yidong1.liulangdiqiu.life, port: 10703, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: AU澳大利亚, server: yidong1.liulangdiqiu.life, port: 10704, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: IN印度01, server: yidong1.liulangdiqiu.life, port: 10705, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: SG新加坡, server: yidong1.liulangdiqiu.life, port: 10707, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: US美国01, server: yidong1.liulangdiqiu.life, port: 10708, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: US美国02, server: yidong1.liulangdiqiu.life, port: 10709, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: CA加拿大, server: yidong1.liulangdiqiu.life, port: 10711, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: CA加拿大2, server: yidong1.liulangdiqiu.life, port: 10712, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: UK英国, server: yidong1.liulangdiqiu.life, port: 10713, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: DE德国, server: yidong1.liulangdiqiu.life, port: 10714, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: NL荷兰, server: yidong1.liulangdiqiu.life, port: 10715, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: FR法国, server: yidong1.liulangdiqiu.life, port: 10716, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: FR法国2, server: yidong1.liulangdiqiu.life, port: 10717, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: ES西班牙, server: yidong1.liulangdiqiu.life, port: 10720, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: SA沙特阿拉伯, server: yidong1.liulangdiqiu.life, port: 10721, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: UAE迪拜, server: yidong1.liulangdiqiu.life, port: 10722, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: NF南非, server: yidong1.liulangdiqiu.life, port: 10723, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
-  - {name: HK香港, server: yidong1.liulangdiqiu.life, port: 10726, type: ss, cipher: chacha20-ietf-poly1305, password: d387c23f-a5aa-4581-a8c4-663b2e0409e8, udp: true}
+  - {name: 美国1, server: wumao-us.legeth.xyz, port: 23361, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 美国2, server: wumao-us.legeth.xyz, port: 23968, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 美国3, server: wumao-us.legeth.xyz, port: 23686, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 美国4, server: wumao-us.legeth.xyz, port: 23171, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 卢森堡1, server: wumao-lu.legeth.xyz, port: 23900, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 卢森堡2, server: wumao-lu.legeth.xyz, port: 23178, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 卢森堡3, server: wumao-lu.legeth.xyz, port: 23296, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 卢森堡4, server: wumao-lu.legeth.xyz, port: 23258, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 法国1, server: wumao-fr.legeth.xyz, port: 23147, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 法国2, server: wumao-fr.legeth.xyz, port: 23341, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 法国3, server: wumao-fr.legeth.xyz, port: 23345, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 法国4, server: wumao-fr.legeth.xyz, port: 23407, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 加拿大1, server: wumao-ca.legeth.xyz, port: 23886, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 加拿大2, server: wumao-ca.legeth.xyz, port: 23447, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 加拿大3, server: wumao-ca.legeth.xyz, port: 23204, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
+  - {name: 加拿大4, server: wumao-ca.legeth.xyz, port: 23691, type: hysteria2, password: 053ae09a-c87a-4d80-b2a8-c274cf14d255, skip-cert-verify: false}
   - {name: 美国1, server: us.tuanzi.site, port: 20701, up: 1000, down: 1000, skip-cert-verify: false, type: hysteria2, password: ccd4f83c-23d2-4a27-9fde-b0af1ca03a3c}
   - {name: 美国2, server: us.tuanzi.site, port: 20701, up: 1000, down: 1000, skip-cert-verify: false, type: hysteria2, password: ccd4f83c-23d2-4a27-9fde-b0af1ca03a3c}
   - {name: 美国3, server: us.tuanzi.site, port: 20701, up: 1000, down: 1000, skip-cert-verify: false, type: hysteria2, password: ccd4f83c-23d2-4a27-9fde-b0af1ca03a3c}
