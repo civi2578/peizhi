@@ -20,6 +20,38 @@ proxies:
     - { name: 日本hy2-1-z, server: jp1.interld123456789.com, port: 36000, ports: 36000-37000, mport: 36000-37000, udp: true, skip-cert-verify: true, sni: 1231231.1234567890spcloud.com, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d }
     - { name: 日本hy2-2-z, server: jp1.interld123456789.com, port: 36000, ports: 36000-37000, mport: 36000-37000, udp: true, skip-cert-verify: true, sni: 1231231.1234567890spcloud.com, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d }
     - { name: 日本hy2-3-z, server: jp1.interld123456789.com, port: 36000, ports: 36000-37000, mport: 36000-37000, udp: true, skip-cert-verify: true, sni: 1231231.1234567890spcloud.com, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d }
+    - { name: '新加坡 01【vip1 】', type: trojan, server: f10001.ylxblkyndjj.sbs, port: 26606, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: sg01.ckcloud.info, skip-cert-verify: true }
+    - { name: '新加坡 02【vip1 】', type: trojan, server: f10002.ylxblkyndjj.sbs, port: 26606, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: sg01.ckcloud.info, skip-cert-verify: true }
+    - { name: '新加坡 03【vip1】', type: trojan, server: f10001.ylxblkyndjj.sbs, port: 19013, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: sg02.ckcloud.info, skip-cert-verify: true }
+    - { name: '新加坡 04【vip1】', type: trojan, server: f10002.flyflylflyflysbs.sbs, port: 19013, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: sg02.ckcloud.info, skip-cert-verify: true }
+    - { name: '香港 03【vip1】', type: trojan, server: f10001.ylxblkyndjj.sbs, port: 27969, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: hk02.ckcloud.info, skip-cert-verify: true }
+    - { name: '香港 04【vip1】', type: trojan, server: f10002.ylxblkyndjj.sbs, port: 27969, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: hk02.ckcloud.info, skip-cert-verify: true }
+    - { name: 香港05【vip1】, type: trojan, server: f10001.ylxblkyndjj.sbs, port: 10187, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: hk04.ckcloud.info, skip-cert-verify: true }
+    - { name: 香港06【vip1】, type: trojan, server: f10002.ylxblkyndjj.sbs, port: 10187, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: hk04.ckcloud.info, skip-cert-verify: true }
+    - { name: 日本01【vip1】, type: trojan, server: f10001.ylxblkyndjj.sbs, port: 29496, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: jp01.ckcloud.info, skip-cert-verify: true }
+    - { name: 日本02【vip1】, type: trojan, server: f10002.ylxblkyndjj.sbs, port: 29496, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: jp01.ckcloud.info, skip-cert-verify: true }
+    - { name: 日本03【vip1】, type: trojan, server: f10001.ylxblkyndjj.sbs, port: 39520, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: jp03.ckcloud.info, skip-cert-verify: true }
+    - { name: 日本04【vip1】, type: trojan, server: f10002.ylxblkyndjj.sbs, port: 39520, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: jp03.ckcloud.info, skip-cert-verify: true }
+    - { name: '台湾 01【vip1】', type: trojan, server: f10001.ylxblkyndjj.sbs, port: 19949, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: tw01.ckcloud.info, skip-cert-verify: true }
+    - { name: '台湾 02【vip1】', type: trojan, server: f10002.ylxblkyndjj.sbs, port: 19949, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: tw01.ckcloud.info, skip-cert-verify: true }
+    - { name: '台湾 03【vip1】', type: trojan, server: f10001.ylxblkyndjj.sbs, port: 49148, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: tw02.ckcloud.info, skip-cert-verify: true }
+    - { name: '台湾 04【vip1】', type: trojan, server: f10002.ylxblkyndjj.sbs, port: 49148, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: tw02.ckcloud.info, skip-cert-verify: true }
+    - { name: 越南01【vip1】, type: trojan, server: f10001.ylxblkyndjj.sbs, port: 55474, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: vn01.ckcloud.info, skip-cert-verify: true }
+    - { name: 越南02【vip1】, type: trojan, server: f10002.ylxblkyndjj.sbs, port: 55474, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: vn01.ckcloud.info, skip-cert-verify: true }
+    - { name: 越南03【vip1】, type: trojan, server: f10001.ylxblkyndjj.sbs, port: 56347, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: vn01.ckcloud.info, skip-cert-verify: true }
+    - { name: 越南04【vip1】, type: trojan, server: f10002.ylxblkyndjj.sbs, port: 56347, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: vn01.ckcloud.info, skip-cert-verify: true }
+    - { name: 印度01【vip1】, type: trojan, server: f10001.ylxblkyndjj.sbs, port: 47497, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: id01.ckcloud.info, skip-cert-verify: true }
+    - { name: 印度02【vip1】, type: trojan, server: f10002.ylxblkyndjj.sbs, port: 47497, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: id01.ckcloud.info, skip-cert-verify: true }
+    - { name: 德国01【vip1】, type: trojan, server: f10001.ylxblkyndjj.sbs, port: 43654, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: de01.ckcloud.info, skip-cert-verify: true }
+    - { name: 德国02【vip1】, type: trojan, server: f10002.ylxblkyndjj.sbs, port: 43654, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: de01.ckcloud.info, skip-cert-verify: true }
+    - { name: 英国01【vip1】, type: trojan, server: f10001.ylxblkyndjj.sbs, port: 30273, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: uk01.ckcloud.info, skip-cert-verify: true }
+    - { name: 英国02【vip1】, type: trojan, server: f10002.ylxblkyndjj.sbs, port: 30273, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: uk01.ckcloud.info, skip-cert-verify: true }
+    - { name: '土耳其 01【vip1】', type: trojan, server: f10001.ylxblkyndjj.sbs, port: 11839, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: tur01.ckcloud.info, skip-cert-verify: true }
+    - { name: '土耳其 02【vip1】', type: trojan, server: f10002.ylxblkyndjj.sbs, port: 11839, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: tur01.ckcloud.info, skip-cert-verify: true }
+    - { name: 美国01【vip1】, type: trojan, server: f10001.ylxblkyndjj.sbs, port: 51345, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: us03.ckcloud.info, skip-cert-verify: true }
+    - { name: 美国02【vip1】, type: trojan, server: f10002.ylxblkyndjj.sbs, port: 51345, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: us03.ckcloud.info, skip-cert-verify: true }
+    - { name: 美国05【vip1】, type: trojan, server: f10001.ylxblkyndjj.sbs, port: 58563, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: us04.ckcloud.info, skip-cert-verify: true }
+    - { name: 美国06【vip1】, type: trojan, server: f10002.ylxblkyndjj.sbs, port: 58563, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: us04.ckcloud.info, skip-cert-verify: true }    
 proxy-groups:
   - name: 🚀 节点选择
     type: select
