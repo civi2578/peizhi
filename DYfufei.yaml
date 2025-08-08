@@ -20,6 +20,10 @@ proxies:
     - { name: 日本hy2-1-z, server: jp1.interld123456789.com, port: 36000, ports: 36000-37000, mport: 36000-37000, udp: true, skip-cert-verify: true, sni: 1231231.1234567890spcloud.com, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d }
     - { name: 日本hy2-2-z, server: jp1.interld123456789.com, port: 36000, ports: 36000-37000, mport: 36000-37000, udp: true, skip-cert-verify: true, sni: 1231231.1234567890spcloud.com, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d }
     - { name: 日本hy2-3-z, server: jp1.interld123456789.com, port: 36000, ports: 36000-37000, mport: 36000-37000, udp: true, skip-cert-verify: true, sni: 1231231.1234567890spcloud.com, type: hysteria2, password: e35fd6f3-8628-404a-b95a-9d258cd8c15d }
+    - { name: '剩余流量：446.55 GB', type: trojan, server: f10021.ylxblkyndjj.sbs, port: 49148, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: tw02.ckcloud.info, skip-cert-verify: true }
+    - { name: 套餐到期：2026-01-29, type: trojan, server: f10021.ylxblkyndjj.sbs, port: 49148, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: tw02.ckcloud.info, skip-cert-verify: true }
+    - { name: '追云国外跳转域名：https://zhuiyun.shop', type: trojan, server: f10021.ylxblkyndjj.sbs, port: 49148, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: tw02.ckcloud.info, skip-cert-verify: true }
+    - { name: '追云国内跳转域名：https://x-zy.shop', type: trojan, server: f10021.ylxblkyndjj.sbs, port: 19949, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: tw01.ckcloud.info, skip-cert-verify: true }
     - { name: '新加坡 01【vip1 】', type: trojan, server: f10001.ylxblkyndjj.sbs, port: 26606, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: sg01.ckcloud.info, skip-cert-verify: true }
     - { name: '新加坡 02【vip1 】', type: trojan, server: f10002.ylxblkyndjj.sbs, port: 26606, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: sg01.ckcloud.info, skip-cert-verify: true }
     - { name: '新加坡 03【vip1】', type: trojan, server: f10001.ylxblkyndjj.sbs, port: 19013, password: f691c5fb-3d34-4096-ac1d-59634e4a6cad, udp: true, sni: sg02.ckcloud.info, skip-cert-verify: true }
