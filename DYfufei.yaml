@@ -51,8 +51,8 @@ proxies:
   - {name: 🇫🇷 法国巴黎2, server: 141.253.124.138, port: 443, type: vless, uuid: 74865d9a-8890-40eb-b944-8f95e5dbe484, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, reality-opts: {public-key: gkl6bqL44xulia53I8gd_BtiVRzU1rsIu4WeffywLBY, short-id: "78f5a5a5" }, servername: tv.apple.com, client-fingerprint: ios, network: tcp}
   - {name: 🇫🇷 法国马赛, server: 144.24.206.147, port: 443, type: vless, uuid: 74865d9a-8890-40eb-b944-8f95e5dbe484, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, reality-opts: {public-key: cu2H4WP9LU3ZdD85MNr8w4jUS79Wx6YVUxVeRGVBQyc, short-id: "be05a235" }, servername: tv.apple.com, client-fingerprint: safari, network: tcp}
   - {name: 🇳🇱 荷兰阿姆斯特丹, server: 158.101.195.118, port: 443, type: vless, uuid: 74865d9a-8890-40eb-b944-8f95e5dbe484, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, reality-opts: {public-key: BU86Bh8IfiMcQllCNU2sFi4z1GfpPOaTxCepPpNmgC4, short-id: "710e95ee" }, servername: tv.apple.com, client-fingerprint: ios, network: tcp}
-  - {name: 🇺🇸 美国圣何塞4, server: 192.9.142.185, port: 443, type: vless, uuid: 74865d9a-8890-40eb-b944-8f95e5dbe484, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, reality-opts: {public-key: 1utdJ0YWFpPYbH-bfIkfGgSebhByfttArVtO9iSlwFM, short-id: "30194285" }, servername: www.mi.com, client-fingerprint: chrome, network: tcp}
-  - {name: 🇺🇸 美国圣何塞5, server: 165.1.68.155, port: 443, type: vless, uuid: 74865d9a-8890-40eb-b944-8f95e5dbe484, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, reality-opts: {public-key: 48Fc8APUOtIJDFrpdULD7Sr7Z7NVp_0K1H9u4LcmfmE, short-id: "67fed015" }, servername: www.mi.com, client-fingerprint: chrome, network: tcp}
+  - {name: 🇺🇸 美国圣何塞, server: 192.9.142.185, port: 443, type: vless, uuid: 74865d9a-8890-40eb-b944-8f95e5dbe484, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, reality-opts: {public-key: 1utdJ0YWFpPYbH-bfIkfGgSebhByfttArVtO9iSlwFM, short-id: "30194285" }, servername: www.mi.com, client-fingerprint: chrome, network: tcp}
+  - {name: 🇺🇸 美国圣何塞2, server: 165.1.68.155, port: 443, type: vless, uuid: 74865d9a-8890-40eb-b944-8f95e5dbe484, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, reality-opts: {public-key: 48Fc8APUOtIJDFrpdULD7Sr7Z7NVp_0K1H9u4LcmfmE, short-id: "67fed015" }, servername: www.mi.com, client-fingerprint: chrome, network: tcp}
   - {name: 🇬🇧 英国伦敦, server: 140.238.101.15, port: 443, type: vless, uuid: 74865d9a-8890-40eb-b944-8f95e5dbe484, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, reality-opts: {public-key: bup-dr56at91n37SQwAMnsNtcmk44UQBGCYN8hkU0nQ, short-id: "903a1801" }, servername: buylite.music.apple.com, client-fingerprint: safari, network: tcp}
   - {name: 🇬🇧 英国伦敦2, server: 193.123.187.39, port: 443, type: vless, uuid: 74865d9a-8890-40eb-b944-8f95e5dbe484, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, reality-opts: {public-key: i7DUE1GbZSybS9hVNoLXkNBUOhy_428gM8v5fKfjS0Q, short-id: "375cd304" }, servername: buylite.music.apple.com, client-fingerprint: ios, network: tcp}
   - {name: 🇩🇪 德国法兰克福, server: 141.147.33.180, port: 443, type: vless, uuid: 74865d9a-8890-40eb-b944-8f95e5dbe484, tls: true, tfo: false, flow: xtls-rprx-vision, skip-cert-verify: false, reality-opts: {public-key: CxZKPoPJmBg2SSXYFRoasAPw-f_ESjRxr1fySPgrG3g, short-id: "e3a0f28a" }, servername: music.apple.com, client-fingerprint: safari, network: tcp}
@@ -116,8 +116,8 @@ proxy-groups:
       - 🇫🇷 法国巴黎2
       - 🇫🇷 法国马赛
       - 🇳🇱 荷兰阿姆斯特丹
-      - 🇺🇸 美国圣何塞4
-      - 🇺🇸 美国圣何塞5
+      - 🇺🇸 美国圣何塞
+      - 🇺🇸 美国圣何塞2
       - 🇬🇧 英国伦敦
       - 🇬🇧 英国伦敦2
       - 🇩🇪 德国法兰克福
@@ -355,8 +355,8 @@ proxy-groups:
       - 🇺🇸 美国洛杉矶专线4-0.1x
       - 🇺🇸 美国洛杉矶专线5-0.1x
       - 🇺🇸 美国堪萨斯专线-0.1x
-      - 🇺🇸 美国圣何塞4
-      - 🇺🇸 美国圣何塞5
+      - 🇺🇸 美国圣何塞
+      - 🇺🇸 美国圣何塞2
       - 🇺🇸 美国1号-0.1x
       - 🇺🇸 美国2号-0.1x
       - 🇺🇸 美国3号-0.1x
