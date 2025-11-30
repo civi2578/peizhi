@@ -107,7 +107,7 @@ proxy-providers:
     proxy: DIRECT
   mianfei:
     type: http
-    url: "https://sub.xeton.dev/sub?target=clash&new_name=true&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcivi2578%2Fpeizhi%2Fmain%2FBeiYong.yaml&insert=false"
+    url: "https://raw.githubusercontent.com/civi2578/peizhi/refs/heads/main/BeiYong.yaml"
     path: ./DYmianfei.yaml
     interval: 86400
     health-check:
