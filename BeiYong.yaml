@@ -23,7 +23,7 @@ proxy-providers:
       interval: 300
     proxy: 直连  
   Airport3:
-    url: "https://s3.v2rayse.com/public/20251130/lworih8c.yaml"
+    url: "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Sub3.txt"
     type: http
     interval: 86400
     health-check:
