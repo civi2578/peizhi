@@ -32,6 +32,15 @@ proxy-providers:
       interval: 300
     proxy: 直连    
   Airport4:
+    url: "https://yy.yudou66.top/202511/2025.11.30Claj6sh.yaml"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连    
+  Airport5:
     url: "https://sub.xeton.dev/sub?target=clash&new_name=true&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcivi2578%2Fpeizhi%2Fmain%2FDYmianfei.yaml&insert=false"
     type: http
     interval: 86400
