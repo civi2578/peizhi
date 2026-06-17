@@ -96,7 +96,7 @@ dns:
 proxy-providers:
   fufei:
     type: http
-    url: "https://yfjc.xyz/api/v1/client/subscribe?token=a59f14cc180bafccb42e216fd304ef9d&flag=meta"
+    url: "https://login.yfjc.xyz/api/v1/client/subscribe?token=24a66370c8c92b7a1f999f88938d9707"
     path: ./DYfufei.yaml
     interval: 86400
     health-check:
