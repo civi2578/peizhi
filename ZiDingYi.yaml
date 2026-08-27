@@ -96,7 +96,7 @@ dns:
 proxy-providers:
   fufei:
     type: http
-    url: "https://dash.yfjc.xyz/api/v1/client/subscribe?token=34efeb127cab9cc5d17f2a77c51c1f7d"
+    url: "https://dash.yfjc.xyz/api/v1/client/subscribe?token=4e717556042fb04b53b0a2e5f784834a"
     path: ./DYfufei.yaml
     interval: 86400
     health-check:
@@ -104,6 +104,16 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       interval: 600
     proxy: DIRECT
+  fufei2:
+    type: http
+    url: "https://liangxin.xyz/api/v1/liangxin?OwO=0a8eac6309fbeddf4f48059c95c4e8cb"
+    path: ./DYfufei.yaml
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 600
+    proxy: DIRECT  
   mianfei1:
     type: http
     url: "https://sub.xeton.dev/sub?target=clash&new_name=true&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcivi2578%2Fpeizhi%2Fmain%2FDYmianfei.yaml&insert=false"
@@ -188,6 +198,7 @@ proxy-groups:
     interval: 600
     use:
       - fufei
+      - fufei2
       - mianfei1
       - mianfei2
       - mianfei3
@@ -215,6 +226,7 @@ proxy-groups:
     strategy: consistent-hashing
     use:
       - fufei
+      - fufei2
  
 
   - name: 免费负载均衡-轮询
@@ -237,6 +249,7 @@ proxy-groups:
     strategy: round-robin
     use:
       - fufei
+      - fufei2
 
 
   - name: 付费
@@ -245,6 +258,7 @@ proxy-groups:
     interval: 600
     use:
       - fufei
+      - fufei2
 
 
   - name: 免费
@@ -277,6 +291,7 @@ proxy-groups:
     interval: 600
     use:
       - fufei
+      - fufei2
       - mianfei1
       - mianfei2
       - mianfei3
@@ -298,6 +313,7 @@ proxy-groups:
     interval: 600
     use: 
       - fufei
+      - fufei2
       - mianfei1
       - mianfei2
       - mianfei3
@@ -320,6 +336,7 @@ proxy-groups:
     interval: 600
     use: 
       - fufei
+      - fufei2
       - mianfei1
       - mianfei2
       - mianfei3
@@ -341,6 +358,7 @@ proxy-groups:
     interval: 600
     use:
       - fufei
+      - fufei2
       - mianfei1
       - mianfei2
       - mianfei3
@@ -356,6 +374,7 @@ proxy-groups:
     interval: 600
     use:
       - fufei
+      - fufei2
       - mianfei1
       - mianfei2
       - mianfei3
@@ -376,6 +395,7 @@ proxy-groups:
     interval: 600
     use:
       - fufei
+      - fufei2
       - mianfei1
       - mianfei2
       - mianfei3
@@ -396,6 +416,7 @@ proxy-groups:
     interval: 600
     use:
       - fufei
+      - fufei2
       - mianfei1
       - mianfei2
       - mianfei3
@@ -418,6 +439,7 @@ proxy-groups:
     interval: 600
     use:
       - fufei
+      - fufei2
       - mianfei1
       - mianfei2
       - mianfei3
@@ -453,6 +475,7 @@ proxy-groups:
     interval: 600
     use:
       - fufei
+      - fufei2
       - mianfei1
       - mianfei2
       - mianfei3
@@ -473,6 +496,7 @@ proxy-groups:
     interval: 600
     use:
       - fufei
+      - fufei2
       - mianfei1
       - mianfei2
       - mianfei3
@@ -494,6 +518,7 @@ proxy-groups:
     interval: 600
     use:
       - fufei
+      - fufei2
       - mianfei1
       - mianfei2
       - mianfei3
